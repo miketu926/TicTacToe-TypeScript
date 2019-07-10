@@ -1,8 +1,6 @@
 ## Simple tic tac toe app using typescript and deployed through a Docker image
 docker image: miketu926/tictactoetsreactimage
 
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

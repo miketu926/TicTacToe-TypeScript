@@ -22,11 +22,11 @@ interface IState {
 
 const App: React.FC = () => {
 
-  const [board, setBoard] = useState([Player.None, Player.None, Player.None, Player.None, Player.None, Player.None, Player.None, Player.None, Player.None])
-  const [nextPlayerTurn, setNextPlayerTurn] = useState(Player.One)
-  const [gameIsWon, setGameIsWon] = useState(ONGOING_GAME);
+  const [board, setBoard] = useState<Array<Player>>([Player.None, Player.None, Player.None, Player.None, Player.None, Player.None, Player.None, Player.None, Player.None])
+  const [nextPlayerTurn, setNextPlayerTurn] = useState<Player>(Player.One)
+  const [gameIsWon, setGameIsWon] = useState<number>(ONGOING_GAME);
 
-  const checkIfGameIsOver = (board: Player[]) => {
+  const checkIfGameIsOver = (board: Player[]): number => {
     if (board[0] === board[1] && board[1] === board[2] && board[2] !== Player.None) return board[2];
     if (board[3] === board[4] && board[4] === board[5] && board[5] !== Player.None) return board[5];
     if (board[6] === board[7] && board[7] === board[8] && board[8] !== Player.None) return board[8];
@@ -45,7 +45,7 @@ const App: React.FC = () => {
   const handleClick = (index: number) => {
     if (board[index] !== Player.None || gameIsWon !== ONGOING_GAME) return;
 
-    const newBoard = board.slice();
+    const newBoard: Player[] = board.slice();
     newBoard[index] = nextPlayerTurn;
 
     setBoard(newBoard);
